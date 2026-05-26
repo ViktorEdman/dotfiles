@@ -16,10 +16,10 @@
       catppuccin
       better-mouse-mode
       power-theme
+        sensible
     ];
     extraConfig = ''
       set-option -g renumber-windows on
-      set-option -sa terminal-features ',tmux-256color:RGB'
       set-option -g set-clipboard on
       bind '"' split-window -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
