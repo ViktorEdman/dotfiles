@@ -1,0 +1,24 @@
+{
+  description = "Viktor's IDE";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github.nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+  outputs =
+    { nixpkgs, home-manager, ... }:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
+    {
+      homeConfigurations."viktor" = home-manager.lib.homeConfiguration {
+        inherit pkgs;
+        modules = [
+          ./home.nix
+        ];
+      };
+    };
+}
