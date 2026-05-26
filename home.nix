@@ -1,17 +1,24 @@
-{ config, pkgs, ... }:
-
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+let
+  mkLink = config.lib.file.mkOutOfStoreSymlink;
+in
 {
   home.username = "viktor";
   home.homeDirectory = "/home/viktor";
   home.stateVersion = "24.11";
-  xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
-  xdg.configFile."nvim/lua".source = ./nvim/lua;
+
+  xdg.configFile."nvim/init.lua".source = mkLink "/home/viktor/dotfiles/nvim/init.lua";
+  xdg.configFile."nvim/lua".source = mkLink "/home/viktor/dotfiles/nvim/lua";
   programs.neovim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
     withNodeJs = true;
-    package = pkgs.neovim;
     defaultEditor = true;
     plugins = [
       {
