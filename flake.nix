@@ -14,7 +14,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      homeConfiguration."viktor" = home-manager.lib.homeConfiguration {
+      homeConfigurations.viktor = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
           ./home.nix
