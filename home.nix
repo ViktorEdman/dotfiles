@@ -6,10 +6,20 @@
   home.stateVersion = "24.11";
   xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
   xdg.configFile."nvim/lua".source = ./nvim/lua;
-  home.packages = with pkgs; [
-    neovim
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    withNodeJs = true;
+    package = pkgs.neovim;
+    defaultEditor = true;
+    plugins = [
+      {
+        plugin = pkgs.vimPlugins.lazy-nvim;
 
-  ];
+      }
+    ];
+  };
   programs.tmux = {
     enable = true;
     baseIndex = 1;

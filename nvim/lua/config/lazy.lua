@@ -136,6 +136,7 @@ require("lazy").setup({
 			formatters_by_ft = {
 				python = { "ruff_format" },
 				lua = { "stylua" },
+				nix = { "nixfmt" },
 			},
 			format_on_save = {
 				async = false,
