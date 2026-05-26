@@ -4,8 +4,12 @@
   home.username = "viktor";
   home.homeDirectory = "/home/viktor";
   home.stateVersion = "24.11";
-  xdg.configFile."nvim".source = ./nvim;
-  home.packages = with pkgs; [neovim];
+  xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
+  xdg.configFile."nvim/lua".source = ./nvim/lua;
+  home.packages = with pkgs; [
+    neovim
+
+  ];
   programs.tmux = {
     enable = true;
     baseIndex = 1;
@@ -18,7 +22,7 @@
       catppuccin
       better-mouse-mode
       power-theme
-        sensible
+      sensible
     ];
     extraConfig = ''
       set-option -g renumber-windows on
