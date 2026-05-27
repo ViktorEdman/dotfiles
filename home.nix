@@ -13,7 +13,7 @@
   xdg.configFile."nvim/lua".source = ./nvim/lua;
   programs.zsh = {
     enable = true;
-    completion.enable = true;
+    enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     history = {
