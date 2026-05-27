@@ -38,6 +38,7 @@
         "sindresorhus/pure"
       ];
     };
+    initContent = "source <(fzf --zsh)";
   };
   programs.neovim = {
     enable = true;
