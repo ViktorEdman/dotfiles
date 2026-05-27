@@ -29,9 +29,10 @@ vim.lsp.config("nil_ls", {
 	settings = {
 		nil_ls = {
 			nix = {
+				maxMemoryMB = 6144,
 				binary = "nix",
 				flake = {
-					autoEvalInputs = false,
+					autoEvalInputs = true,
 					nixpkgsInputName = "nixpkgs",
 				},
 			},
