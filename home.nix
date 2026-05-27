@@ -4,16 +4,35 @@
   lib,
   ...
 }:
-let
-  mkLink = config.lib.file.mkOutOfStoreSymlink;
-in
 {
   home.username = "viktor";
   home.homeDirectory = "/home/viktor";
   home.stateVersion = "24.11";
 
-  xdg.configFile."nvim/init.lua".source = mkLink "/home/viktor/dotfiles/nvim/init.lua";
-  xdg.configFile."nvim/lua".source = mkLink "/home/viktor/dotfiles/nvim/lua";
+  xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
+  xdg.configFile."nvim/lua".source = ./nvim/lua;
+  programs.zsh = {
+    enable = true;
+    completion.enable = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    history = {
+      size = 10000;
+      ignoreAllDups = true;
+      ignorePatterns = [
+        "rm *"
+        "pkill *"
+        "cp *"
+      ];
+    };
+    shellAliases = {
+      ls = "lsd";
+      update = "source ~/dotfiles/hm_switch.sh";
+    };
+    antidote = {
+      enable = true;
+    };
+  };
   programs.neovim = {
     enable = true;
     viAlias = true;
