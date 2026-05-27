@@ -24,3 +24,17 @@ vim.lsp.config("basedpyright", {
 		},
 	},
 })
+
+vim.lsp.config("nil_ls", {
+	settings = {
+		nil_ls = {
+			nix = {
+				binary = "nix",
+				flake = {
+					autoEvalInputs = false,
+					nixpkgsInputName = "nixpkgs",
+				},
+			},
+		},
+	},
+})

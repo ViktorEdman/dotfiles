@@ -11,6 +11,9 @@
 
   xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
   xdg.configFile."nvim/lua".source = ./nvim/lua;
+  home.packages = with pkgs; [
+    nil
+  ];
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -39,11 +42,12 @@
     vimAlias = true;
     withNodeJs = true;
     defaultEditor = true;
-    plugins = [
-      {
-        plugin = pkgs.vimPlugins.lazy-nvim;
+    plugins = with pkgs.vimPlugins; [
 
-      }
+      lazy-nvim
+      cmp-nvim-lsp
+      cmp-nixpkgs-maintainers
+
     ];
   };
   programs.tmux = {
