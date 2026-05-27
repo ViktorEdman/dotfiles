@@ -34,6 +34,9 @@
     };
     antidote = {
       enable = true;
+      plugins = [
+        "sindresorhus/pure"
+      ];
     };
   };
   programs.neovim = {
