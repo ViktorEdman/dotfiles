@@ -45,6 +45,8 @@
     viAlias = true;
     vimAlias = true;
     withNodeJs = true;
+    withRuby = false;
+    withPython3 = true;
     defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
 
