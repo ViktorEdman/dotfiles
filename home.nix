@@ -14,6 +14,16 @@
   home.packages = with pkgs; [
     nil
     nixfmt
+    git
+    fzf
+    cargo
+    rustc
+    nodejs
+
+    gcc
+    gnumake
+    cmake
+    pkg-config
   ];
   programs.zsh = {
     enable = true;
@@ -54,6 +64,7 @@
       lazy-nvim
       cmp-nvim-lsp
       cmp-nixpkgs-maintainers
+      nvim-treesitter
 
     ];
   };
@@ -70,7 +81,6 @@
       {
         plugin = gruvbox;
         extraConfig = ''
-          set -g @tmux-gruvbox 'dark'
           set -g @tmux-gruvbox-right-status-z "#h "
         '';
       }
