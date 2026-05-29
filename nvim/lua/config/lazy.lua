@@ -71,9 +71,7 @@ require("lazy").setup({
 			"rafamadriz/friendly-snippets",
 		},
 		build = function()
-			local blink = require("blink.cmp")
-			local buildtask = blink.build()
-			buildtask:wait(60000)
+			 require("blink.cmp").build():wait(60000)
 		end,
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config

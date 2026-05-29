@@ -7,18 +7,23 @@
 {
   home.username = "viktor";
   home.homeDirectory = "/home/viktor";
-  home.stateVersion = "24.11";
+  home.stateVersion = "26.05";
 
   xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
   xdg.configFile."nvim/lua".source = ./nvim/lua;
   home.packages = with pkgs; [
+    lsd
+    fzf
+    git
+    pure-prompt
+
     nil
     nixfmt
-    git
-    fzf
     cargo
     rustc
     nodejs
+    tree-sitter
+    stylua
 
     gcc
     gnumake
@@ -43,13 +48,13 @@
       ls = "lsd";
       update = "source ~/dotfiles/hm_switch.sh";
     };
-    antidote = {
-      enable = true;
-      plugins = [
-        "sindresorhus/pure"
-      ];
-    };
-    initContent = "source <(fzf --zsh)";
+    initContent = ''
+      autoload -U promptinit
+      promptinit
+      prompt pure
+      source <(fzf --zsh)
+    '';
+
   };
   programs.neovim = {
     enable = true;
