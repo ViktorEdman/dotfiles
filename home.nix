@@ -66,14 +66,9 @@
     prefix = "C-b";
     package = pkgs.tmux;
     plugins = with pkgs.tmuxPlugins; [
-      catppuccin
       better-mouse-mode
       {
-        plugin = power-theme;
-        extraConfig = ''
-          set -g @tmux_power_theme 'forest'
-          set -g @tmux_power_right_y '  %H:%S'
-        '';
+        plugin = gruvbox;
       }
       sensible
     ];
@@ -83,7 +78,8 @@
       bind '"' split-window -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
       bind c new-window -c "#{pane_current_path}"
-      set -g @catppuccin_flavour 'frappe'
+      bind r source-file ~/.config/tmux/tmux.conf \; display "Config reloaded!"
+
     '';
   };
 }
