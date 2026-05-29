@@ -69,6 +69,10 @@
       better-mouse-mode
       {
         plugin = gruvbox;
+        extraConfig = ''
+          set -g @tmux-gruvbox 'dark'
+          set -g @tmux-gruvbox-right-status-z "#h "
+        '';
       }
       sensible
     ];
