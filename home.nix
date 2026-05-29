@@ -13,6 +13,7 @@
   xdg.configFile."nvim/lua".source = ./nvim/lua;
   home.packages = with pkgs; [
     nil
+    nixfmt
   ];
   programs.zsh = {
     enable = true;
@@ -78,6 +79,7 @@
       bind c new-window -c "#{pane_current_path}"
       set -g @catppuccin_flavour 'frappe'
       set -g @tmux_power_theme 'forest'
+      set -g @tmux_power_right_y '  %H:%S'
     '';
   };
 }
