@@ -4,10 +4,11 @@
   lib,
   ...
 }:
+
 {
   home.username = "viktor";
   home.homeDirectory = "/home/viktor";
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 
   xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
   xdg.configFile."nvim/lua".source = ./nvim/lua;
@@ -18,6 +19,7 @@
     fd
     git
     pure-prompt
+    zoxide
 
     nil
     nixfmt
@@ -28,12 +30,18 @@
     tree-sitter
     stylua
 
+    zoxide
     gcc
     gnumake
     cmake
     pkg-config
   ];
+  programs.zoxide = {
+    enableZshIntegration = true;
+    enable = true;
+  };
   programs.zsh = {
+
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
@@ -56,6 +64,7 @@
       promptinit
       prompt pure
       source <(fzf --zsh)
+      eval "$(zoxide init zsh)"
     '';
 
   };
