@@ -8,11 +8,12 @@
 {
   home.username = "viktor";
   home.homeDirectory = "/home/viktor";
-  home.stateVersion = "26.05";
+  home.stateVersion = "25.11";
 
   xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
   xdg.configFile."nvim/lua".source = ./nvim/lua;
   home.packages = with pkgs; [
+    home-manager
     lsd
     fzf
     ripgrep
@@ -21,7 +22,7 @@
     pure-prompt
     zoxide
 
-    nil
+    nixd
     nixfmt
     lua-language-server
     cargo

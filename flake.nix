@@ -1,21 +1,49 @@
 {
-  description = "Viktor's IDE";
+  description = "Viktor's dotfiles";
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
+
   outputs =
-    { nixpkgs, home-manager, ... }:
+    {
+      nixpkgs,
+      home-manager,
+      nixos-wsl,
+      ...
+    }:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
+      nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit nixos-wsl; };
+        modules = [
+          home-manager.nixosModules.home-manager
+          ./configuration.nix
+          ./wsl.nix
+        ];
+      };
+
+      nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          home-manager.nixosModules.home-manager
+          ./configuration.nix
+          ./vm.nix
+        ];
+      };
+
       homeConfigurations.viktor = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+        pkgs = nixpkgs.legacyPackages.${system};
         modules = [
           ./home.nix
         ];
