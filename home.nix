@@ -7,18 +7,21 @@
 {
   home.username = "viktor";
   home.homeDirectory = "/home/viktor";
-  home.stateVersion = "26.05";
+  home.stateVersion = "25.11";
 
   xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
   xdg.configFile."nvim/lua".source = ./nvim/lua;
   home.packages = with pkgs; [
     lsd
     fzf
+    ripgrep
+    fd
     git
     pure-prompt
 
     nil
     nixfmt
+    lua-language-server
     cargo
     rustc
     nodejs

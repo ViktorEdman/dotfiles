@@ -28,6 +28,7 @@ require("lazy").setup({
 		-- this is equivalent to setup({}) function
 	},
 	"mason-org/mason.nvim",
+	"neovim/nvim-lspconfig",
 	{
 		"mason-org/mason-lspconfig.nvim",
 		opts = {},
@@ -71,7 +72,7 @@ require("lazy").setup({
 			"rafamadriz/friendly-snippets",
 		},
 		build = function()
-			 require("blink.cmp").build():wait(60000)
+			require("blink.cmp").build():wait(60000)
 		end,
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
@@ -167,11 +168,35 @@ require("lazy").setup({
 	{
 		"nvim-lualine/lualine.nvim",
 		--- @module "lualine"
+		--- @type
 		opts = {
 			theme = "nightfly",
+			sections = {
+				lualine_x = {
+					{
+						function()
+							local buf_clients = vim.lsp.get_clients({ bufnr = 0 })
+							if #buf_clients == 0 then
+								return "No active LSP"
+							end
+							local client_names = {}
+							for _, client in pairs(buf_clients) do
+								table.insert(client_names, client.name)
+							end
+							return "LSP: " .. table.concat(client_names, ", ")
+						end,
+						icon = "",
+						color = { gui = "bold" },
+					},
+					"encoding",
+					"fileformat",
+					"filetype",
+				},
+			},
 		},
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
+			"arkav/lualine-lsp-progress",
 		},
 	},
 	{
