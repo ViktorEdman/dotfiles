@@ -1,14 +1,3 @@
-require("mason").setup()
-
-local mason_lspconfig = require("mason-lspconfig")
-
---- @module "mason-lspconfig"
---- @type MasonLspconfigSettings
-
-mason_lspconfig.setup({
-	automatic_enable = true,
-})
-
 vim.lsp.config("nixd", {
 	cmd = { "nixd" },
 	filetypes = { "nix" },
@@ -33,12 +22,8 @@ vim.lsp.config("nixd", {
 	},
 })
 
-vim.lsp.config("basedpyright", {
-	cmd = { "basedpyright" },
-	filetypes = { "python" },
-	root_markers = { "pyproject.toml", "main.py", "uv.lock" },
-})
-
 vim.lsp.enable("nixd")
 vim.lsp.enable("basedpyright")
 vim.lsp.enable("lua_ls")
+vim.lsp.enable("basedpyright")
+vim.lsp.enable("jsonls")

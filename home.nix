@@ -14,31 +14,42 @@
   xdg.configFile."nvim/lua".source = ./nvim/lua;
   home.packages = with pkgs; [
     home-manager
-    lsd
-    fzf
-    ripgrep
-    fd
     git
-    pure-prompt
-    zoxide
-    uv
 
-    nixd
-    basedpyright
-    nixfmt
-    lua-language-server
-    cargo
-    rustc
-    python3
-    nodejs
-    tree-sitter
-    stylua
+    # Formatters
+    nixfmt # nix
+    stylua # lua
+    black # python
 
-    zoxide
-    gcc
+    # LSP servers
+    nixd # nix
+    basedpyright # python
+    lua-language-server # lua
+    gopls # go
+    vscode-json-languageserver # json
+
+    # Compilers & interpreters
+    cargo # rust
+    rustc # rust
+    python3 # python
+    nodejs # javascript
+    gcc # c/c++
     gnumake
     cmake
     pkg-config
+    uv # python
+
+    # Syntax highlighting
+    tree-sitter # neovim dependency
+
+    # Terminal niceties
+    zoxide # smart cd
+    pure-prompt # zsh prompt
+    fzf # fuzzy finding, for zsh and neovim
+    ripgrep # fast grep
+    fd # fast file search
+    lsd # eyecandy ls
+
   ];
   programs.zoxide = {
     enableZshIntegration = true;
