@@ -33,4 +33,12 @@ vim.lsp.config("nixd", {
 	},
 })
 
+vim.lsp.config("basedpyright", {
+	cmd = { "basedpyright" },
+	filetypes = { "python" },
+	root_markers = { "pyproject.toml", "main.py", "uv.lock" },
+})
+
 vim.lsp.enable("nixd")
+vim.lsp.enable("basedpyright")
+vim.lsp.enable("lua_ls")

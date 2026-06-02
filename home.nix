@@ -21,12 +21,15 @@
     git
     pure-prompt
     zoxide
+    uv
 
     nixd
+    basedpyright
     nixfmt
     lua-language-server
     cargo
     rustc
+    python3
     nodejs
     tree-sitter
     stylua

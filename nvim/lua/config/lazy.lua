@@ -37,20 +37,22 @@ require("lazy").setup({
 			"neovim/nvim-lspconfig",
 		},
 	},
-	{
-		"folke/lazydev.nvim",
-		dependencies = {
-			"saghen/blink.lib",
-		},
-		ft = "lua", -- only load on lua files
-		opts = {
-			library = {
-				-- See the configuration section for more details
-				-- Load luvit types when the `vim.uv` word is found
-				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-			},
-		},
-	},
+
+ {
+        "folke/lazydev.nvim",
+        dependencies = {
+                "saghen/blink.lib",
+        },
+        ft = "lua", -- only load on lua files
+        opts = {
+                library = {
+                        -- See the configuration section for more details
+                        -- Load luvit types when the `vim.uv` word is found
+                        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                },
+        },
+},
+
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
