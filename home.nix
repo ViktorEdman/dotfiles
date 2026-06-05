@@ -49,6 +49,7 @@
     ripgrep # fast grep
     fd # fast file search
     lsd # eyecandy ls
+    fastfetch # for clout
 
   ];
   programs.zoxide = {

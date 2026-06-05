@@ -126,7 +126,7 @@ require("lazy").setup({
 		cmd = { "ConformInfo" },
 		opts = {
 			formatters_by_ft = {
-				python = { "ruff_format" },
+				python = { "black" },
 				lua = { "stylua" },
 				nix = { "nixfmt" },
 			},
