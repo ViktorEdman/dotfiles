@@ -214,4 +214,6 @@ require("lazy").setup({
 		opts = {},
 	},
 	{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true },
+	"meanderingprogrammer/render-markdown.nvim",
+	"folke/todo-comments.nvim",
 })

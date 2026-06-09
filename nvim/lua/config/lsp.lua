@@ -25,5 +25,4 @@ vim.lsp.config("nixd", {
 vim.lsp.enable("nixd")
 vim.lsp.enable("basedpyright")
 vim.lsp.enable("lua_ls")
-vim.lsp.enable("basedpyright")
 vim.lsp.enable("jsonls")
