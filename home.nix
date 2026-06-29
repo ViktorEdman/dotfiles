@@ -28,7 +28,7 @@
     nixd # nix
     basedpyright # python
     lua-language-server # lua
-    docker-languaage-server
+    docker-language-server
     gopls # go
     vscode-json-languageserver # json
 
