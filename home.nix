@@ -9,6 +9,9 @@
   home.username = "viktor";
   home.homeDirectory = "/home/viktor";
   home.stateVersion = "25.11";
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
 
   xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
   xdg.configFile."nvim/lua".source = ./nvim/lua;
@@ -25,6 +28,7 @@
     nixd # nix
     basedpyright # python
     lua-language-server # lua
+    docker-languaage-server
     gopls # go
     vscode-json-languageserver # json
 
@@ -32,7 +36,7 @@
     cargo # rust
     rustc # rust
     python3 # python
-    nodejs # javascript
+    nodejs_24
     gcc # c/c++
     gnumake
     cmake
@@ -50,8 +54,18 @@
     fd # fast file search
     lsd # eyecandy ls
     fastfetch # for clout
+    (btop.override { rocmSupport = true; })
 
   ];
+  programs.kitty = {
+    settings = {
+      enable_audio_bell = false;
+      scrollback_lines = 10000;
+      update_check_interval = 0;
+      background_opacity = 0.8;
+      background_blur = 1;
+    };
+  };
   programs.zoxide = {
     enableZshIntegration = true;
     enable = true;
@@ -119,6 +133,7 @@
       }
       sensible
     ];
+
     extraConfig = ''
       set-option -g renumber-windows on
       set-option -g set-clipboard on
