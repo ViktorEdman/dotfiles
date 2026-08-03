@@ -37,10 +37,10 @@
     rustc # rust
     python3 # python
     nodejs_24
-    gcc # c/c++
-    gnumake
-    cmake
-    pkg-config
+    # gcc # c/c++
+    # gnumake
+    # cmake
+    # pkg-config
     uv # python
 
     # Syntax highlighting
@@ -55,6 +55,7 @@
     lsd # eyecandy ls
     fastfetch # for clout
     (btop.override { rocmSupport = true; })
+    ytmdesktop # desktop youtube music client
 
   ];
   programs.kitty = {
@@ -95,6 +96,7 @@
       prompt pure
       source <(fzf --zsh)
       eval "$(zoxide init zsh)"
+      export PATH="$PATH:$HOME/.cargo/bin"
     '';
 
   };
@@ -137,6 +139,8 @@
     extraConfig = ''
       set-option -g renumber-windows on
       set-option -g set-clipboard on
+      set -g extended-keys on
+      set -g extended-keys-format csi-u
       bind '"' split-window -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
       bind c new-window -c "#{pane_current_path}"
